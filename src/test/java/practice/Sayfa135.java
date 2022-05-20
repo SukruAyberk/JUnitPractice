@@ -36,6 +36,8 @@ public class Sayfa135 extends TestBase {
         // 8- “Double click me" butonunu cift tiklayin
         WebElement doubleClick = driver.findElement(By.xpath("//h2"));
         actions.doubleClick(doubleClick).perform();
+
+        //github bağlandı
     }
 
 }
