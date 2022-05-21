@@ -10,10 +10,10 @@ import java.time.Duration;
 
 public abstract class TestBaseClass {
 
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
     @BeforeClass
-    public void setUp() {
+    public static void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -21,7 +21,7 @@ public abstract class TestBaseClass {
     }
 
     @AfterClass
-    public void tearDown() {
+    public static void tearDown() {
         //driver.close();
     }
 
