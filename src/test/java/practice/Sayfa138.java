@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import utilities.TestBaseClass;
 
@@ -38,7 +39,8 @@ public class Sayfa138 extends TestBaseClass {
         //1- amazon gidin
         //2- Arama kutusunun solundaki dropdown menuyu handle edip listesini ekrana yazdırın
         //3- dropdown menude 28 eleman olduğunu doğrulayın
-        driver.get("https://www.amazon.com/");
+        driver.get("https://www.amazon.com.tr/");
+
         WebElement dropDownMenu = driver.findElement(By.xpath("//select[@id='searchDropdownBox']"));
         Select select = new Select(dropDownMenu);
         List<WebElement> optionList = select.getOptions();
@@ -58,10 +60,17 @@ public class Sayfa138 extends TestBaseClass {
         //4- ikinci ürüne relative locater kullanarak tıklayin
         //5- ürünün title'ni ve fiyatını variable’a assign edip ürünü sepete ekleyelim
 
-        driver.get("https://www.amazon.com/");
+        driver.get("https://www.amazon.com.tr/");
+        Actions actions = new Actions(driver);
+        WebElement loginElement = driver.findElement(By.id("nav-link-accountList-nav-line-1"));
+        actions.moveToElement(loginElement);
+        driver.findElement(By.xpath("(//*[text()='Giriş yap'])[1]")).click();
+        driver.findElement(By.xpath("//input[@type='email']")).sendKeys("ayberk546@gmail.com" + Keys.ENTER);
+        driver.findElement(By.xpath("//input[@type='password']")).sendKeys("AybeRkRG370lEspAuLdX*" + Keys.ENTER);
+        driver.findElement(By.xpath("//input[@id='sp-cc-accept']")).click();
         WebElement dropDownMenu = driver.findElement(By.xpath("//select[@id='searchDropdownBox']"));
         Select select = new Select(dropDownMenu);
-        select.selectByVisibleText("Electronics");
+        select.selectByVisibleText("Elektronik");
 
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("iphone" + Keys.ENTER);
         WebElement resultText = driver.findElement(By.xpath("//span[@class='a-color-state a-text-bold']"));
