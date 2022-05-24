@@ -50,6 +50,9 @@ public class Q10_Iframe extends TestBase {
                 sendKeys(Keys.TAB).
                 sendKeys("maymunlar cehennemi bayrağı").
                 sendKeys(Keys.TAB).
+                sendKeys("maymunlar cehennemi bayrağı").
+                sendKeys(Keys.TAB).
+                sendKeys("maymunlar cehennemi bayrağı").
                 perform();
         //  apply button a basin
         driver.findElement(By.xpath("//button[@id='send']")).click();
